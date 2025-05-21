@@ -9,4 +9,47 @@ author:
 tags:
   - governance
   - department-for-planning-and-development
+  - organisations
 ---
+
+## Mandate and Overview
+
+The Department for Planning and Development (DfPD) is a governmental body within Samland responsible for the strategic planning, design, and execution of construction projects and land use within Samland's claimed areas in the Minecraft world. Its core mission is to translate Samland's governmental concepts into tangible virtual structures and a coherent spatial organisation.
+
+The DfPD works closely with the Department for Resource Management to ensure projects are feasible and considers the implications of world resets in its long-term planning.
+
+## Key Responsibilities
+
+The DfPD's responsibilities, within the current scale of Samland, include:
+
+1.  **Strategic Land Use Planning:**
+    *   Identifying suitable locations for key Samlandic structures (e.g., "capitol" building, resource storage, facilities).
+    *   Developing conceptual layouts or "master plans" for Samlandic settlements or areas of operation, considering aesthetics, functionality, and defensibility (within Minecraft mechanics).
+    *   Considering environmental impact and integration with the natural Minecraft landscape.
+
+2.  **Architectural Design and Standards:**
+    *   Developing or adopting architectural styles or themes that reflect Samland's identity or goals.
+    *   Creating blueprints or design guidelines for key infrastructure and public buildings.
+    *   Ensuring new constructions align with established Samlandic principles or aesthetics.
+
+3.  **Project Management and Execution:**
+    *   Overseeing the construction process for "state-sponsored" projects.
+    *   Prioritizing development projects based on Samland's current objectives.
+    *   Adapting plans based on available resources and in-game challenges.
+
+4.  **Infrastructure Development:**
+    *   Planning and overseeing the creation of essential infrastructure, such as pathways, bridges, lighting, and basic defensive measures.
+    *   Considering future expansion needs in current infrastructure design.
+
+5.  **Post-Reset Planning:**
+    *   Developing strategies for rapid re-establishment of key infrastructure and symbolic structures after a world reset.
+    *   Learning from previous iterations to improve the efficiency and design of foundational builds.
+
+## Current Focus and Projects
+
+*   **Standardized "Capital Core" Design:** Developing a modular and replicable design for a central administrative or symbolic area that can be quickly established post-reset.
+*   **Infrastructure Blueprints:** Creating basic templates for essential infrastructure like secure storage units, simple workshops, and efficient farming modules.
+*   **Review of Past Iterations:** Analysing the successes and failures of previous Samlandic layouts and construction projects to inform future planning.
+*   **Exploration of Symbolic Architecture:** Considering how building design can be used to visually represent Samland's governmental concepts or principles within Minecraft.
+
+*As Samland evolves and its objectives shift, the specific activities and focus of the Department for Planning and Development will adapt accordingly.*
