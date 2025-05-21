@@ -22,9 +22,9 @@ The government of Samland is structured to facilitate its primary goal: experime
 
 ## Departments of the Government
 
-To better organize the aspects of governance, the government operates in multiple departments and organisations,
+To better organize the aspects of governance, the government operates in multiple departments and organisations:
 [See a full list of organisations](/government/organisations/).
 
 ## Decision-Making
 
-Decisions are currently made by the Founder, guided by their discretion and the evolving goals of the governmental.
+Decisions are currently made by the Founder, guided by their discretion and the evolving goals of the government.

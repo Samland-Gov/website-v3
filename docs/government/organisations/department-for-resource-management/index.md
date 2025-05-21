@@ -14,7 +14,7 @@ tags:
 
 ## Mandate and Overview
 
-The Department for Resource Management (DfRM) is agovernmental body within Samland responsible for the strategic planning, acquisition, storage, and allocation of in-game resources within the Minecraft world. Its primary function is to ensure that Samland has the necessary materials to achieve its experimental objectives, including construction projects, tool and equipment crafting, and sustaining its virtual presence.
+The Department for Resource Management (DfRM) is a governmental body within Samland responsible for the strategic planning, acquisition, storage, and allocation of in-game resources within the Minecraft world. Its primary function is to ensure that Samland has the necessary materials to achieve its experimental objectives, including construction projects, tool and equipment crafting, and sustaining its virtual presence.
 
 The DfRM operates with an understanding of the Minecraft world's mechanics and the cyclical nature of server resets, adapting its strategies accordingly.
 
