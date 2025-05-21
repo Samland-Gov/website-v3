@@ -93,7 +93,6 @@ export default function(eleventyConfig) {
   eleventyConfig.addNunjucksGlobal('xGovuk', false)
 
   eleventyConfig.addCollection("allOrganisationsByName", function(collectionApi) {
-    console.log(collectionApi.getFilteredByGlob("docs/government/organisations/**/index.md"))
     return collectionApi.getFilteredByGlob("docs/government/organisations/**/index.md").sort(function(a, b) {
       return a.data.title.localeCompare(b.data.title); // sort by title ascending
     });
