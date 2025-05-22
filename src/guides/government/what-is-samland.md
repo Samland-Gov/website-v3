@@ -3,9 +3,9 @@ layout: post
 title: What is Samland?
 description: Basic introduction and information about Samland
 date: 2023-09-22
-author:
-  name: Samuel Hulme
-  url: 'https://github.com/ajh123'
+authors:
+  - name: Samuel Hulme
+    url: 'https://github.com/ajh123'
 related:
   sections:
     - title: Extra reading

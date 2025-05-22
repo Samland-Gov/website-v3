@@ -1,14 +1,3 @@
----
-homepage: true
-layout: product
-title: Samland Government
-description: The best place to find government information
-image:
-  src: https://raw.githubusercontent.com/Samland-Gov/.github/274ae83c834dfbd76b869d7eb4ccceebb6d958d5/flag.svg
-eleventyComputed:
-  title: "{{ pkg.description }}"
----
-
 ## What is Samland?
 
 Samland is a virtual micronation established in 2017, primarily operating within a Minecraft world hosted on the Miners Online server.

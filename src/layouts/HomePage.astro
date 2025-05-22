@@ -1,0 +1,44 @@
+---
+import Footer from "../components/Footer.astro"
+import Header from "../components/Header.astro"
+import "../styles/application.scss"
+---
+
+<html lang="en" class="govuk-template govuk-template--rebranded">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="theme-color" content="#0b0c0c">
+		<link rel="icon" sizes="48x48" href="https://raw.githubusercontent.com/Samland-Gov/.github/274ae83c834dfbd76b869d7eb4ccceebb6d958d5/flag.svg">
+		<link rel="icon" sizes="any" href="https://raw.githubusercontent.com/Samland-Gov/.github/274ae83c834dfbd76b869d7eb4ccceebb6d958d5/flag.svg" type="image/svg+xml">
+		<link rel="mask-icon" href="https://raw.githubusercontent.com/Samland-Gov/.github/274ae83c834dfbd76b869d7eb4ccceebb6d958d5/flag.svg" color="#0b0c0c">
+		<link rel="apple-touch-icon" href="https://raw.githubusercontent.com/Samland-Gov/.github/274ae83c834dfbd76b869d7eb4ccceebb6d958d5/flag.svg">
+		<title>Samland Government</title>
+	</head>
+	<body class="govuk-template__body govuk-frontend-supported">
+		<script>
+			document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');
+		</script>
+		<a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+		<Header/>
+		<main id="main-content">
+			<slot name="masthead" />
+			<div class="govuk-width-container">
+				<div class="govuk-main-wrapper">
+					<slot />
+				</div>
+			</div>
+		</main>
+		<Footer/>
+		<script>
+			import { initAll } from 'govuk-frontend'
+			initAll()
+		</script>
+		<script>
+			import { initAll } from '@x-govuk/govuk-prototype-components'
+			initAll()
+		</script>
+	</body>
+</html>

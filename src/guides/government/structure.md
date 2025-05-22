@@ -3,9 +3,9 @@ layout: post
 title: Samlandic Government Structure
 description: An overview of the simulated governmental structure of Samland.
 date: 2025-05-21
-author:
-  name: Samuel Hulme
-  url: 'https://github.com/ajh123'
+authors:
+  - name: Samuel Hulme
+    url: 'https://github.com/ajh123'
 tags:
   - governance
   - structure

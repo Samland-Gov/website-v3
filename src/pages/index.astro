@@ -1,0 +1,30 @@
+---
+import HomePage from '../layouts/HomePage.astro';
+import Mathshead from 'src/components/Mathshead.astro';
+import markdownit from 'markdown-it'
+import markdownitGovuk from 'markdown-it-govuk'
+import highlight from 'markdown-it-govuk/highlight'
+
+const md = markdownit({
+  highlight
+})
+
+md.use(markdownitGovuk)
+
+import * as content from './_index.md';
+const rawContent = content.rawContent();
+const htmlContent = md.render(rawContent);
+---
+
+<HomePage>
+	<Mathshead
+		description='The best place to find government information'
+		image={{
+			src: 'https://raw.githubusercontent.com/Samland-Gov/.github/274ae83c834dfbd76b869d7eb4ccceebb6d958d5/flag.svg',
+			alt: 'Samland Flag',
+		}}
+		slot={'masthead'}
+	/>
+	<Fragment set:html={htmlContent} />
+</HomePage>
+
