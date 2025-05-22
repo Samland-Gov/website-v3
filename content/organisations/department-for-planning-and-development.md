@@ -1,15 +1,10 @@
 ---
-layout: post
-title: Department for Planning and Development
-description: An overview of the Department for Planning and Development.
-date: 2025-05-21
-authors:
-  - name: Samuel Hulme
-    url: 'https://github.com/ajh123'
-tags:
-  - governance
-  - department-for-planning-and-development
-  - organisations
+name: Department for Planning and Development
+mailAddress:
+  line1: Null, Undefined Road
+  postCode: SLKI1
+  city: Samchezter
+  country: Samland
 ---
 
 ## Mandate and Overview

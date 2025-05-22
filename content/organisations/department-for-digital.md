@@ -1,15 +1,10 @@
 ---
-layout: post
-title: Department for Digital
-description: An overview of the Department for Digital.
-date: 2025-05-21
-authors:
-  - name: Samuel Hulme
-    url: 'https://github.com/ajh123'
-tags:
-  - governance
-  - department-for-digital
-  - organisations
+name: Department for Digital
+mailAddress:
+  line1: Null, Undefined Road
+  postCode: SLKI1
+  city: Samchezter
+  country: Samland
 ---
 
 ## Mandate and Overview

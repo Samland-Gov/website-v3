@@ -16,4 +16,21 @@ const guides = defineCollection({
   }),
 });
 
-export const collections = { guides: guides };
+const organisations = defineCollection({
+  loader: glob({ pattern: ['*.md'], base: 'content/organisations/' }),
+  schema: z.object({
+    name: z.string(),
+    mailAddress: z.object({
+      line1: z.string(),
+      line2: z.string().optional(),
+      postCode: z.string(),
+      city: z.string(),
+      country: z.string(),
+    }).optional(),
+  }),
+});
+
+export const collections = {
+  guides: guides,
+  organisations: organisations,
+};
