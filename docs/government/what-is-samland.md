@@ -18,9 +18,9 @@ tags:
 
 ## Introduction
 
-Samland is a virtual micronation that has existed since 2017. Its primary virtual presence is manifested within a Minecraft world hosted on the Miners Online server. 
+Samland is a virtual micronation that has existed since 2017. Its primary virtual presence is manifested within a Minecraft world hosted on the Miners Online server.
 
-This world is reset not on a fixed schedule, but when the current iteration presents significant challenges or when a fresh start is needed to explore new concepts.
+A characteristic of Samland is that the Minecraft world is reset from time to time, when the current iteration presents significant challenges or when a fresh start is needed to explore new concepts.
 
 Beyond being an experiment in virtual world persistence, a core objective of Samland is to attempt to replicate aspects of real-world government structures and functions within the unique context of Minecraft.
 

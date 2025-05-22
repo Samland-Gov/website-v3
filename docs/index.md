@@ -13,7 +13,7 @@ eleventyComputed:
 
 Samland is a virtual micronation established in 2017, primarily operating within a Minecraft world hosted on the Miners Online server.
 
-This world undergoes occasional resets to support new experiments in virtual governance, infrastructure planning, and community design. Samland's mission is to explore how real-world governmental structures can be simulated or adapted within the constraints of a persistent, player-driven game world.
+Samland's mission is to explore how real-world governmental structures can be simulated or adapted within the constraints of a persistent, player-driven game world.
 
 Unlike traditional micronations, Samland is a living experiment in **digital statecraft**, **resilience**, and **procedural governance**.
 

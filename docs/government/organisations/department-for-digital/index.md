@@ -18,7 +18,7 @@ The Department for Digital (DfD) is the conceptual governmental body within Saml
 
 ## Key Responsibilities
 
-The DfD's responsibilities, while conceptual within the current scale of Samland, include:
+The DfD's responsibilities include:
 
 1.  **Official Website Management:**
     *   Maintaining and updating the content of the Samland Government website (`samland.minersonline.uk`).
@@ -27,7 +27,7 @@ The DfD's responsibilities, while conceptual within the current scale of Samland
 
 2.  **Digital Record Keeping:**
     *   Overseeing the principles for how Samland's "official records" (e.g., decisions, historical iterations, data) are documented and preserved, primarily through this website and associated version control (GitHub).
-    *   Exploring methods for digitally representing Samlandic "assets" or "territory" within the Minecraft simulation, if applicable.
+    *   Exploring methods for digitally representing Samlandic "assets" or "territory" within the Minecraft simulation.
 
 3.  **Communication Protocols:**
     *   Defining how official information about Samland is disseminated.
