@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://samland.minersonline.uk/sitemap-index.xml

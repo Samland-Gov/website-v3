@@ -9,8 +9,11 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.4.0",
+    "@x-govuk/govuk-prototype-components": "^4.0.0",
     "astro": "^5.8.0",
     "govuk-frontend": "^5.10.1",
+    "markdown-it": "^14.1.0",
     "markdown-it-govuk": "^0.5.0",
     "sass": "^1.89.0"
   }
