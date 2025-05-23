@@ -20,6 +20,7 @@ const organisations = defineCollection({
   loader: glob({ pattern: ['*.md'], base: 'content/organisations/' }),
   schema: z.object({
     name: z.string(),
+    orgType: z.enum(['department', 'agency', 'public body']).default('department'),
     mailAddress: z.object({
       line1: z.string(),
       line2: z.string().optional(),
