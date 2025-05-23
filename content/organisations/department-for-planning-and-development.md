@@ -1,7 +1,7 @@
 ---
 name: Department for Planning and Development
 mailAddress:
-  line1: Null, Undefined Road
+  line1: 2, Undefined Road
   postCode: SLKI1
   city: Samchezter
   country: Samland
