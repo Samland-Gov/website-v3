@@ -1,0 +1,146 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const orgs = await getCollection('organisations');
+
+// Initialise the orgs
+const departments = orgs.filter(org => org.data.orgType === 'department');
+const agencies = orgs.filter(org => org.data.orgType === 'agency');
+const publicBodies = orgs.filter(org => org.data.orgType === 'public body');
+
+const totalOrgs = departments.length + agencies.length + publicBodies.length;
+---
+
+<Base title="Departments, agencies and public bodies">
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+            <header class="app-document-header">
+                <h1 class="app-document-header__title govuk-heading-xl">
+                    Departments, agencies and public bodies
+                </h1>
+                <form data-filter="form" role="search" aria-label="Departments, agencies and public bodies">
+                    <div class="govuk-form-group">
+                        <label for="filter-organisations-list" class="govuk-label">Search for a department, agency or public body</label>
+                        <input
+                            aria-controls="search_results"
+                            class="govuk-input"
+                            data-module="ga4-focus-loss-tracker"
+                            data-ga4-focus-loss='{"event_name":"filter","type":"filter","action":"filter","section":"Departments, agencies and public bodies"}'
+                            id="filter-organisations-list"
+                            name="search"
+                            spellcheck="false"
+                            type="text"
+                        />
+                    </div>
+                </form>
+            </header>
+        </div>
+        <div class="govuk-grid-column-full">
+            <div class="app-prose-scope">
+                <div class="govuk-heading-m" aria-live="polite"><span id="results-count">{totalOrgs}</span> results found</div>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-quarter">
+                        <h2 class="govuk-heading-m"><span id="departments-heading">{departments.length}</span> Departments</h2>
+                    </div>
+                    <div class="govuk-grid-column-three-quarters">
+                        <dl class="govuk-summary-list" id="departments-list">
+                            {departments.map(org => (
+                                <div class="govuk-summary-list__row">
+                                    <dt class="govuk-summary-list__key">
+                                        <a class="govuk-link" href={`/government/organisations/${org.id}`}>{org.data.name}</a>
+                                    </dt>
+                                </div>
+                            ))}
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-quarter">
+                        <h2 class="govuk-heading-m"><span id="agencies-heading">{agencies.length}</span> Agencies</h2>
+                    </div>
+                    <div class="govuk-grid-column-three-quarters">
+                        <dl class="govuk-summary-list" id="agencies-list">
+                            {agencies.map(org => (
+                                <div class="govuk-summary-list__row">
+                                    <dt class="govuk-summary-list__key">
+                                        <a class="govuk-link" href={`/government/organisations/${org.id}`}>{org.data.name}</a>
+                                    </dt>
+                                </div>
+                            ))}
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-quarter">
+                        <h2 class="govuk-heading-m"><span id="public-bodies-heading">{publicBodies.length}</span> Public Bodies</h2>
+                    </div>
+                    <div class="govuk-grid-column-three-quarters">
+                        <dl class="govuk-summary-list" id="public-bodies-list">
+                            {publicBodies.map(org => (
+                                <div class="govuk-summary-list__row">
+                                    <dt class="govuk-summary-list__key">
+                                        <a class="govuk-link" href={`/government/organisations/${org.id}`}>{org.data.name}</a>
+                                    </dt>
+                                </div>
+                            ))}
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script define:vars={{ orgs }}>
+        const filterInput = document.getElementById('filter-organisations-list');
+        const resultsCount = document.getElementById('results-count');
+
+        const categories = {
+            department: document.getElementById('departments-list'),
+            agency: document.getElementById('agencies-list'),
+            'public body': document.getElementById('public-bodies-list'),
+        };
+
+        function renderOrgs(filteredOrgs) {
+            const typeCounts = {
+                department: 0,
+                agency: 0,
+                'public body': 0,
+            };
+
+            Object.keys(categories).forEach(type => {
+                categories[type].innerHTML = '';
+                const matching = filteredOrgs.filter(org => org.data.orgType === type);
+                typeCounts[type] = matching.length;
+
+                for (const org of matching) {
+                const row = document.createElement('div');
+                row.className = 'govuk-summary-list__row';
+                row.innerHTML = `
+                    <dt class="govuk-summary-list__key">
+                    <a class="govuk-link" href="/government/organisations/${org.id}">${org.data.name}</a>
+                    </dt>
+                `;
+                categories[type].appendChild(row);
+                }
+            });
+
+            document.getElementById('departments-heading').textContent = typeCounts.department;
+            document.getElementById('agencies-heading').textContent = typeCounts.agency;
+            document.getElementById('public-bodies-heading').textContent = typeCounts['public body'];
+            resultsCount.textContent = filteredOrgs.length;
+        }
+
+        // Initial render
+        renderOrgs(orgs);
+
+        filterInput.addEventListener('input', () => {
+            const query = filterInput.value.toLowerCase();
+            const filtered = orgs.filter(org =>
+            org.data.name.toLowerCase().includes(query)
+            );
+            renderOrgs(filtered);
+        });
+    </script>
+</Base>

@@ -11,6 +11,7 @@ interface Props {
 const { title, description, image } = Astro.props as Props;
 ---
 
+<!-- we are required to manually define as we cannot import from x-govuk since that package tries direct imports from `node_modules` -->
 <style lang="scss">
     @use "../../node_modules/govuk-frontend/dist/govuk" as *;
 
