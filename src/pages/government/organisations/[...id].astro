@@ -1,10 +1,7 @@
 ---
 import Base from '../../../layouts/Base.astro';
 
-import markdownit from 'markdown-it'
-import markdownitGovuk from 'markdown-it-govuk'
-import highlight from 'markdown-it-govuk/highlight'
-
+import { renderMarkdown } from 'src/lib/markdown';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -17,13 +14,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 
-const md = markdownit({
-  highlight
-})
-
-md.use(markdownitGovuk)
-
-const htmlContent = md.render(post.body || "No content available");
+const htmlContent = renderMarkdown(post.body || "No content available");
 ---
 
 <Base title={post.data.name}>

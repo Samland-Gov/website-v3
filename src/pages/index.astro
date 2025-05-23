@@ -1,19 +1,10 @@
 ---
 import HomePage from '../layouts/HomePage.astro';
 import Mathshead from 'src/components/Mathshead.astro';
-import markdownit from 'markdown-it'
-import markdownitGovuk from 'markdown-it-govuk'
-import highlight from 'markdown-it-govuk/highlight'
-
-const md = markdownit({
-  highlight
-})
-
-md.use(markdownitGovuk)
+import { renderMarkdown } from 'src/lib/markdown';
 
 import * as content from './_index.md';
-const rawContent = content.rawContent();
-const htmlContent = md.render(rawContent);
+const htmlContent = renderMarkdown(content.rawContent());
 ---
 
 <HomePage>
