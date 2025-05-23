@@ -2,19 +2,23 @@
 import Base from '../../../layouts/Base.astro';
 
 import { renderMarkdown } from 'src/lib/markdown';
-import { getCollection } from 'astro:content';
+import { getEntry } from 'astro:content';
 
-export async function getStaticPaths() {
-  const posts = await getCollection('organisations');
-  return posts.map(post => ({
-    params: { id: post.id },
-    props: { post },
-  }));
+const postID = Astro.params.id;
+
+if (!postID) {
+	return new Response(null, { status: 404 });
 }
 
-const { post } = Astro.props;
+const post = await getEntry('organisations', postID);
 
-const htmlContent = renderMarkdown(post.body || "No content available");
+if (!post) {
+	return new Response(null, { status: 404 });
+}
+
+const body = post && post.body ? post.body : "No content available";
+
+const htmlContent = renderMarkdown(body);
 ---
 
 <Base title={post.data.name}>
