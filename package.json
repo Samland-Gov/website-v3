@@ -3,15 +3,15 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
+    "dev": "wrangler types && astro dev",
+    "start": "wrangler types && astro dev",
+    "build": "wrangler types && astro check && astro build",
+    "preview": "wrangler types && astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.5.3",
     "@astrojs/sitemap": "^3.4.0",
-    "@workos-inc/node": "^7.51.0",
     "@x-govuk/govuk-prototype-components": "^4.0.0",
     "astro": "^5.8.0",
     "govuk-frontend": "^5.10.1",

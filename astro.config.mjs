@@ -9,6 +9,11 @@ import cloudflare from '@astrojs/cloudflare';
 export default defineConfig({
   site: 'https://samland.minersonline.uk',
   integrations: [sitemap()],
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    platformProxy: {
+      enabled: true
+    },
+    sessionKVBindingName: "Samland_Sessions"
+  }),
   output: 'server',
 });

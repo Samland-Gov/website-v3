@@ -1,7 +1,7 @@
 ---
 import HomePage from '../layouts/HomePage.astro';
-import Mathshead from 'src/components/Mathshead.astro';
-import { renderMarkdown } from 'src/lib/markdown';
+import Mathshead from '../components/Mathshead.astro';
+import { renderMarkdown } from '../lib/markdown';
 
 import * as content from './_index.md';
 const htmlContent = renderMarkdown(content.rawContent());
