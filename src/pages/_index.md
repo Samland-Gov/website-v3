@@ -1,10 +1,10 @@
 ## What is Samland?
 
-Samland is a virtual micronation established in 2017, primarily operating within a Minecraft world hosted on the Miners Online server.
+Samland is a virtual micronation established in 2017, operating within a Minecraft world hosted on the Miners Online server.
 
-Samland's mission is to explore how real-world governmental structures can be simulated or adapted within the constraints of a persistent, player-driven game world.
+Samland's mission is to replicate real-world governmental structures within the constraints of a persistent, player-driven game world.
 
-Unlike traditional micronations, Samland is a living experiment in **digital statecraft**, **resilience**, and **procedural governance**.
+Samland is a nation of **digital statecraft**, **resilience**, and **governance**.
 
 [Learn more about Samland](/government/what-is-samland/)
 
@@ -12,28 +12,28 @@ Unlike traditional micronations, Samland is a living experiment in **digital sta
 
 The present world iteration began in **May 2025**, with:
 
-- Updates to Minecraft 1.21.1 and Create 6.0
-- Focus on improving digital infrastructure
+*   Updates to Minecraft 1.21.1 and Create 6.0
+*   Focus on improving digital infrastructure
 
-These activities reflect Samland’s ongoing goal of adapting civic infrastructure to a reset-prone, collaborative environment.
+These activities reflect Samland’s ongoing development of civic infrastructure in a collaborative environment.
 
 ## Departments of Government
 
-Samland's conceptual government is organised into multiple departments, each simulating specific administrative roles:
+Samland's government is organised into multiple departments, each managing specific administrative roles:
 
-- 🖥️ [**Department for Digital**](/government/organisations/department-for-digital)  
-  Oversees the website, digital infrastructure, and internal communication tools.
+*   🖥️ [**Department for Digital**](/government/organisations/department-for-digital)  
+    Oversees the website, digital infrastructure, and internal communication tools.
 
-- 🏗️ [**Department for Planning and Development**](/government/organisations/department-for-planning-and-development)  
-  Plans, designs, and constructs core infrastructure and symbolic structures.
+*   🏗️ [**Department for Planning and Development**](/government/organisations/department-for-planning-and-development)  
+    Plans, designs, and constructs core infrastructure and symbolic structures.
 
-- ⛏️ [**Department for Resource Management**](/government/organisations/department-for-resource-management)  
-  Handles acquisition, allocation, and storage of materials used across Samlandic initiatives.
+*   ⛏️ [**Department for Resource Management**](/government/organisations/department-for-resource-management)  
+    Handles acquisition, allocation, and storage of materials used across Samlandic initiatives.
 
 [View all departments and organisations](/government/organisations/)
 
 ## Governance and Structure
 
-While currently overseen by its Founder, Samland adopts a flexible administrative model that allows experimentation with different governmental structures, decision-making processes, and inter-departmental coordination.
+Overseen by its President, Samland adopts an administrative model that allows governmental structures, decision-making processes, and inter-departmental coordination.
 
 [Read about the Government Structure](/government/structure/)

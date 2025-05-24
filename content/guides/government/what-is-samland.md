@@ -3,6 +3,7 @@ layout: post
 title: What is Samland?
 description: Basic introduction and information about Samland
 date: 2023-09-22
+lastModified: 2025-05-24
 authors:
   - name: Samuel Hulme
     url: 'https://github.com/ajh123'
@@ -18,13 +19,11 @@ tags:
 
 ## Introduction
 
-Samland is a virtual micronation that has existed since 2017. Its primary virtual presence is manifested within a Minecraft world hosted on the Miners Online server.
+Samland is a virtual micronation that has existed since 2017. Its primary presence is within a Minecraft world hosted on the Miners Online server.
 
-A characteristic of Samland is that the Minecraft world is reset from time to time, when the current iteration presents significant challenges or when a fresh start is needed to explore new concepts.
+Samland has adapted and evolved through several Minecraft world resets, demonstrating its resilience and the enduring commitment of its citizens. Each iteration allows for refinement of its systems and infrastructure.
 
-Beyond being an experiment in virtual world persistence, a core objective of Samland is to attempt to replicate aspects of real-world government structures and functions within the unique context of Minecraft.
-
-This unique setup means Samland is an ongoing experiment in virtual world adaptation and simulated governance, rather than a traditional online community or political entity.
+Samland replicates aspects of real-world government structures and functions within the unique context of Minecraft.
 
 ## What is a Micronation?
 
@@ -36,8 +35,8 @@ Samland's history is rooted in its online presence, where individuals come toget
 
 ## Community and Culture
 
-Despite its small size and limited activity, Samland fosters a unique online culture and community. Members often engage in discussions, develop their own customs, and contribute to the micronation's evolving identity.
+Samland fosters a unique online culture and community. Members engage in discussions, develop their own customs, and contribute to the micronation's evolving identity.
 
 ## Get Involved
 
-If you're interested in exploring the world of virtual micronations or becoming a part of Samland's growing community, feel free to join us and be a part of our unique online experiment.
+If you're interested in exploring the world of virtual micronations or becoming a part of Samland's growing community, feel free to join us and be a part of our unique online nation.

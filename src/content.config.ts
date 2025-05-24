@@ -8,6 +8,7 @@ const guides = defineCollection({
     title: z.string(),
     description: z.string(),
     date: z.date(),
+    lastModified: z.date().optional(),
     authors: z.array(z.object({
         name: z.string(),
         url: z.string().optional(),
