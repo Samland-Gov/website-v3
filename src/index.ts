@@ -6,7 +6,7 @@ const app = express();
 
 nunjucks.configure([
   "node_modules/govuk-frontend/dist", // For GOV.UK Frontend templates
-  'views'
+  path.join(__dirname, 'views')
 ], {
   autoescape: true,
   express: app
