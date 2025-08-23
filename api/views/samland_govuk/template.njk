@@ -2,29 +2,25 @@
 
 {% from "govuk/macros/attributes.njk" import govukAttributes -%}
 {% from "govuk/components/skip-link/macro.njk" import govukSkipLink -%}
-{% from "govuk/components/header/macro.njk" import govukHeader -%}
-{% from "govuk/components/footer/macro.njk" import govukFooter -%}
+{% from "samland_govuk/components/header/macro.njk" import samlandHeader -%}
+{% from "samland_govuk/components/footer/macro.njk" import samlandFooter -%}
 
 {%- set _rebrand = govukRebrand() if govukRebrand is callable else govukRebrand -%}
 
-{# Hardcoded value is $govuk-brand-blue if rebrand, otherwise govuk-colour("black") -#}
-{% set themeColor = themeColor | default("#1d70b8" if _rebrand else "#0b0c0c", true) -%}
-{% set assetPath = assetPath | default("/assets/rebrand" if _rebrand else "/assets", true) -%}
+{# Hardcoded value is $govuk-brand-colour override using Samland colours-#}
+{% set themeColor = themeColor | default("#329c69" if _rebrand else "#329c69", true) -%}
+{% set assetPath = assetPath | default("/assets" if _rebrand else "/assets", true) -%}
 
 <!DOCTYPE html>
 <html lang="{{ htmlLang | default("en", true) }}" class="govuk-template {%- if _rebrand %} govuk-template--rebranded{% endif %} {%- if htmlClasses %} {{ htmlClasses }}{% endif %}">
   <head>
     <meta charset="utf-8">
-    <title {%- if pageTitleLang %} lang="{{ pageTitleLang }}"{% endif %}>{% block pageTitle %}Samland Government{% endblock %}</title>
+    <title {%- if pageTitleLang %} lang="{{ pageTitleLang }}"{% endif %}>{% block pageTitle %}Samland GOV{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="{{ themeColor }}">
 
     {% block headIcons %}
-      <link rel="icon" sizes="48x48" href="{{ assetPath }}/images/favicon.ico">
       <link rel="icon" sizes="any" href="{{ assetPath }}/images/favicon.svg" type="image/svg+xml">
-      <link rel="mask-icon" href="{{ assetPath }}/images/govuk-icon-mask.svg" color="{{ themeColor }}">
-      <link rel="apple-touch-icon" href="{{ assetPath }}/images/govuk-icon-180.png">
-      <link rel="manifest" href="{{ assetPath }}/manifest.json">
     {% endblock %}
 
     <link rel="stylesheet" href="/style.css">
@@ -47,7 +43,7 @@
     {% endblock %}
 
     {% block header %}
-      {{ govukHeader({
+      {{ samlandHeader({
         rebrand: _rebrand
       }) }}
     {% endblock %}
@@ -62,7 +58,7 @@
     {% endblock %}
 
     {% block footer %}
-      {{ govukFooter({
+      {{ samlandFooter({
         rebrand: _rebrand
       }) }}
     {% endblock %}

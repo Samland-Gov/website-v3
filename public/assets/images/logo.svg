@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="1810" height="240">
+  <!-- Background stripes (original content on the left, rest is blank for text) -->
+  <rect width="360" height="80" x="0" y="0" fill="#ce1126" />
+  <rect width="360" height="80" x="0" y="80" fill="#ffffff" />
+  <rect width="360" height="80" x="0" y="160" fill="#ce1126" />
+
+  <!-- Blue square -->
+  <rect width="180" height="160" x="0" y="0" fill="#004080" />
+
+  <!-- Star emblem -->
+  <g transform="translate(90.000000,80.000000)">
+    <g transform="scale(0.638298)">
+      <g transform="translate(-125.000000,-123.000000)">
+        <polygon style="fill:#ffffff;stroke:#000;stroke-width:2.5" points="125,5 155,90 245,90 175,145 200,230 125,180 50,230 75,145 5,90 95,90"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Text on the right side, vertically centered -->
+  <text x="400" y="130" font-family="Arial" font-size="200" fill="#ffffff" dominant-baseline="middle">- Samland GOV</text>
+</svg>
