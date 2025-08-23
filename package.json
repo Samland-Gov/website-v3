@@ -4,9 +4,10 @@
 	"description": "",
 	"main": "index.ts",
 	"scripts": {
+		"build": "npm run scss",
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"dev": "cross-env NO_VERCEL=1 ts-node api/index.ts",
-		"start": "vercel dev"
+		"start": "vercel dev",
+		"scss": "sass api/scss/index.scss public/style.css"
 	},
 	"keywords": [],
 	"author": "",

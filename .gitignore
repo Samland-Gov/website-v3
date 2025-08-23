@@ -1,5 +1,5 @@
 node_modules
 .env
 .vercel
-
-.vercel
+/public/style.css
+/public/style.css.map

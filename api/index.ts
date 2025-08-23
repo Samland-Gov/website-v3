@@ -12,13 +12,10 @@ nunjucks.configure([
   express: app
 });
 
+
 // Serve static files from /public
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-app.get('/public/govuk-frontend.min.css', (req, res) => {
-  // Serve the GOV.UK Frontend CSS file from node_modules
-  res.sendFile(path.join(__dirname, '..', 'node_modules', 'govuk-frontend', 'dist', 'govuk', 'govuk-frontend.min.css'));
-});
 app.get('/public/govuk-frontend.min.js', (req, res) => {
   // Serve the GOV.UK Frontend JS file from node_modules
   res.sendFile(path.join(__dirname, '..', 'node_modules', 'govuk-frontend', 'dist', 'govuk', 'govuk-frontend.min.js'));
@@ -45,10 +42,5 @@ app.get('/api-data', (req, res) => {
 app.get('/healthz', (req, res) => {
   res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
 });
-
-if (process.env.NO_VERCEL == '1') {
-  // Local dev listener (ignored on Vercel)
-  app.listen(3000, () => console.log('Server running on http://localhost:3000'));
-}
 
 module.exports = app;
