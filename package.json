@@ -1,0 +1,27 @@
+{
+	"name": "express",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.ts",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "cross-env NO_VERCEL=1 ts-node api/index.ts",
+		"start": "vercel dev"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"express": "^4.18.2",
+		"govuk-frontend": "^5.11.2",
+		"nunjucks": "^3.2.4",
+		"sass": "^1.90.0",
+		"ts-node": "^10.9.2"
+	},
+	"devDependencies": {
+		"@types/express": "^5.0.3",
+		"@types/node": "^24.3.0",
+		"@types/nunjucks": "^3.2.6",
+		"cross-env": "^10.0.0"
+	}
+}
