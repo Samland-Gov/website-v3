@@ -15,6 +15,8 @@
 	"dependencies": {
 		"express": "^4.18.2",
 		"govuk-frontend": "^5.11.2",
+		"govuk-markdown": "^0.8.0",
+		"gray-matter": "^4.0.3",
 		"nunjucks": "^3.2.4",
 		"sass": "^1.90.0",
 		"ts-node": "^10.9.2"

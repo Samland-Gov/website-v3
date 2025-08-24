@@ -49,6 +49,7 @@
     {% endblock %}
 
     {% block main %}
+      {% block afterMain %}{% endblock %}
       <div class="govuk-width-container {%- if containerClasses %} {{ containerClasses }}{% endif %}">
         {% block beforeContent %}{% endblock %}
         <main class="govuk-main-wrapper {%- if mainClasses %} {{ mainClasses }}{% endif %}" id="main-content" {%- if mainLang %} lang="{{ mainLang }}"{% endif %}>
@@ -59,7 +60,79 @@
 
     {% block footer %}
       {{ samlandFooter({
-        rebrand: _rebrand
+        rebrand: _rebrand,
+        navigation: [
+          {
+            title: "Services and information",
+            width: "two-thirds",
+            columns: 2,
+            items: [
+              {
+                href: "#",
+                text: "Business and employment"
+              },
+              {
+                href: "#",
+                text: "Citizenship and living"
+              },
+              {
+                href: "#",
+                text: "Crime, justice and the law"
+              },
+              {
+                href: "#",
+                text: "Driving and transport"
+              },
+              {
+                href: "#",
+                text: "Money and tax"
+              }
+            ]
+          },
+          {
+            title: "Departments and policy",
+            width: "one-third",
+            items: [
+              {
+                href: "#",
+                text: "How government works"
+              },
+              {
+                href: "#",
+                text: "Departments"
+              },
+              {
+                href: "#",
+                text: "Policies"
+              },
+              {
+                href: "#",
+                text: "Announcements"
+              }
+            ]
+          }
+        ],
+        meta: {
+          items: [
+            {
+              href: "#",
+              text: "Help"
+            },
+            {
+              href: "#",
+              text: "Cookies"
+            },
+            {
+              href: "#",
+              text: "Contact"
+            },
+            {
+              href: "#",
+              text: "Terms and conditions"
+            }
+          ],
+          html: 'Built by the <a href="#" class="govuk-footer__link">Department for Digital</a>'
+        }
       }) }}
     {% endblock %}
 

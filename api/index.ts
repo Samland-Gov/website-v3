@@ -1,6 +1,15 @@
 import express from "express";
 import path from "path";
+import fs from "fs";
 import nunjucks from "nunjucks";
+
+import { marked } from 'marked'
+import govukMarkdown from 'govuk-markdown'
+import matter from "gray-matter";
+
+marked.use(govukMarkdown())
+
+const articlesDir = path.join(__dirname, 'content', 'articles');
 
 const app = express();
 
@@ -26,8 +35,29 @@ app.get('/', (req, res) => {
   res.render('index.html');
 });
 
-app.get('/about', function (req, res) {
-	res.render('about.html');
+app.get('/articles/:slug', function (req, res) {
+  const fileName = req.params.slug + '.md'; // map slug → .md
+  const filePath = path.join(articlesDir, fileName);
+
+  // Security: ensure only files inside the markdownDir are accessible
+  if (!filePath.startsWith(articlesDir)) {
+    return res.status(400).send('Invalid file path');
+  }
+
+  fs.readFile(filePath, 'utf8', (err, body) => {
+    if (err) return res.status(404).send('File not found');
+    const { data, content } = matter(body);
+    const html = marked(content);
+    res.render(
+      'samland_govuk/article_template.njk',
+      {
+        article: {
+          ...data,
+          content: html
+        }
+      }
+    );
+  });
 });
 
 // Example API endpoint - JSON
