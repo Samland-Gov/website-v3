@@ -31,19 +31,14 @@
   <div class="govuk-grid-row">
     <h2 class="govuk-heading-m govuk-!-margin-top-8">Featured articles</h2>
     <div class="govuk-grid-row govuk-!-margin-bottom-7">
-      {# Example static featured posts; replace or render dynamically by passing a featuredPosts array into the template context #}
-      {% set featuredPosts = featuredPosts | default([
-        { title: 'How governance works', summary: 'An overview of institutions, roles and decision-making processes.', category: 'Guides', href: '/blog/how-governance-works' },
-        { title: 'Recent infrastructure bill passed', summary: 'New transport links approved to connect outer settlements.', category: 'Legislation', href: '/blog/infrastructure-bill' },
-        { title: 'Judiciary reforms explained', summary: 'Overview of the latest constitutional amendments to court procedure.', category: 'Judiciary', href: '/blog/judiciary-reforms' }
-      ], true) %}
+      {% set entries = getContentEntries("articles") %}
 
-      {% for post in featuredPosts %}
+      {% for post in entries %}
         <div class="govuk-grid-column-one-third govuk-!-margin-bottom-4">
           <div class="govuk-!-padding-2 govuk-panel govuk-!-margin-bottom-0" style="background:#f8f8f8;">
-            <p class="govuk-!-margin-bottom-1 govuk-hint">{{ post.category }}</p>
-            <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link" href="{{ post.href }}">{{ post.title }}</a></h3>
-            <p class="govuk-body-s govuk-!-margin-bottom-0">{{ post.summary }}</p>
+            <p class="govuk-!-margin-bottom-1 govuk-hint">{{ post.articleCategory }}</p>
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link" href="{{ post.slug }}">{{ post.articleTitle }}</a></h3>
+            <p class="govuk-body-s govuk-!-margin-bottom-0">{{ post.articleDescription }}</p>
           </div>
         </div>
       {% endfor %}

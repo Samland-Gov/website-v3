@@ -9,11 +9,23 @@ import matter from "gray-matter";
 
 marked.use(govukMarkdown())
 
-const articlesDir = path.join(__dirname, 'content', 'articles');
+const contentDir = path.join(__dirname, 'content');
+
+function getContentEntries(subdir: string) {
+  const dirPath = path.join(contentDir, subdir);
+  return fs.readdirSync(dirPath)
+    .filter(file => file.endsWith('.md'))
+    .map(file => {
+      const filePath = path.join(dirPath, file);
+      const fileContents = fs.readFileSync(filePath, 'utf8');
+      const { data } = matter(fileContents);
+      return { ...data, slug: subdir+"/"+file.replace(/\.md$/, '') };
+    });
+}
 
 const app = express();
 
-nunjucks.configure([
+const env = nunjucks.configure([
   "node_modules/govuk-frontend/dist", // For GOV.UK Frontend templates
   path.join(__dirname, 'views')
 ], {
@@ -21,6 +33,7 @@ nunjucks.configure([
   express: app
 });
 
+env.addGlobal('getContentEntries', getContentEntries);
 
 // Serve static files from /public
 app.use(express.static(path.join(__dirname, '..', 'public')));
@@ -35,12 +48,12 @@ app.get('/', (req, res) => {
   res.render('index.html');
 });
 
-app.get('/articles/:slug', function (req, res) {
+app.get('/:slug(*)', function (req, res) {
   const fileName = req.params.slug + '.md'; // map slug → .md
-  const filePath = path.join(articlesDir, fileName);
+  const filePath = path.join(contentDir, fileName);
 
-  // Security: ensure only files inside the markdownDir are accessible
-  if (!filePath.startsWith(articlesDir)) {
+  // Security: ensure only files inside the contentDir are accessible
+  if (!filePath.startsWith(contentDir)) {
     return res.status(400).send('Invalid file path');
   }
 
@@ -49,28 +62,13 @@ app.get('/articles/:slug', function (req, res) {
     const { data, content } = matter(body);
     const html = marked(content);
     res.render(
-      'samland_govuk/article_template.njk',
+      `layouts/${data.template}.njk`,
       {
-        article: {
-          ...data,
-          content: html
-        }
+        ...data,
+        content: html
       }
     );
   });
-});
-
-// Example API endpoint - JSON
-app.get('/api-data', (req, res) => {
-  res.json({
-    message: 'Here is some sample API data',
-    items: ['apple', 'banana', 'cherry']
-  });
-});
-
-// Health check
-app.get('/healthz', (req, res) => {
-  res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
 module.exports = app;

@@ -4,29 +4,29 @@
 {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
-{% block pageTitle %}{{ article.title }} - Samland GOV{% endblock %}
+{% block pageTitle %}{{ articleTitle }} - Samland GOV{% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
 
-    <span class="govuk-caption-l">{{article.category}}</span>
+    <span class="govuk-caption-l">{{articleCategory}}</span>
 
-    <h1 class="govuk-heading-l">{{article.title}}</h1>
+    <h1 class="govuk-heading-l">{{articleTitle}}</h1>
 
-    <p class="govuk-body-l">{{article.description}}</p>
+    <p class="govuk-body-l">{{articleDescription}}</p>
 
     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-    <p class="govuk-body govuk-!-font-size-16 govuk-!-margin-bottom-1">Published {{article.date}}</p>
+    <p class="govuk-body govuk-!-font-size-16 govuk-!-margin-bottom-1">Published {{articleDate}}</p>
 
     <p class="govuk-body govuk-!-font-size-16 govuk-!-margin-bottom-4">
-      From: <a class="govuk-link" href="{{article.author.url}}">{{article.author.name}}</a>
+      From: <a class="govuk-link" href="{{articleAuthor.url}}">{{articleAuthor.name}}</a>
     </p>
 
     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-    {{ article.content | safe }}
+    {{ content | safe }}
 
     <hr class="govuk-section-break govuk-section-break--l">
 
