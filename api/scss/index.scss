@@ -1,20 +1,92 @@
 // Use GOV.UK Frontend components
 $_font-family: arial, sans-serif;
 @use "../../node_modules/govuk-frontend/dist/govuk" as * with (
-    $govuk-global-styles: true,
-    $govuk-new-organisation-colours: true,
-    // $govuk-new-typography-scale: true,
-    $govuk-font-family: $_font-family,
-    $govuk-brand-colour: #329c69,
-    $govuk-link-colour: #328655,
-    $govuk-link-hover-colour: #328353,
-    $govuk-link-visited-colour: #336639,
-    // $govuk-page-width: 1100px
+  $govuk-global-styles: true,
+  $govuk-new-organisation-colours: true,
+  // $govuk-new-typography-scale: true,
+  $govuk-font-family: $_font-family,
+  $govuk-brand-colour: #329c69,
+  $govuk-link-colour: #328655,
+  $govuk-link-hover-colour: #328353,
+  $govuk-link-visited-colour: #336639,
+  // $govuk-page-width: 1100px
 );
+
+// Masthead styles
 
 .app-masthead {
   display: flow-root;
   background: $govuk-brand-colour;
 }
 
+// Use GOV.UK Markdown styles
+
 @import "../../node_modules/govuk-markdown/x-govuk/all";
+
+// Search styles
+
+.app-document-list > li {
+  padding-top: govuk-spacing(4);
+  padding-bottom: govuk-spacing(2);
+  border-bottom: 1px solid $govuk-border-colour;
+}
+
+.app-metadata-list > li {
+  display: inline-block;
+  margin-right: govuk-spacing(2);
+}
+
+.app-filter li {
+  padding-bottom: govuk-spacing(4);
+  border-bottom: 1px solid $govuk-border-colour;
+}
+
+.app-open-fieldset {
+  margin-top: govuk-spacing(4);
+  margin-bottom: govuk-spacing(4);
+  font-weight: normal;
+}
+
+.app-search-result-list__children {
+  margin-left: govuk-spacing(4);
+
+  @include govuk-media-query($from: tablet) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 15px;
+    list-style: none;
+  }
+}
+
+.app-search-results-summary {
+  position: relative;
+}
+
+.app-search-results-summary .subscribe-link {
+  position: absolute;
+  top: 5px;
+  right: 0;
+}
+
+.app-search-result-sort {
+  @include govuk-font($size: 16);
+}
+
+.app-search-result-sort label {
+  @include govuk-font($size: 16);
+  display: inline;
+  margin-right: govuk-spacing(1);
+}
+
+.app-next-page__number {
+  text-decoration-line: underline;
+}
+
+.app-next-page {
+  display: block;
+  padding: govuk-spacing(4) govuk-spacing(2);
+}
+
+.app-next-page:hover {
+  background-color: govuk-colour("light-grey");
+}

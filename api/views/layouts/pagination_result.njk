@@ -1,0 +1,198 @@
+{% extends "samland_govuk/template.njk" %}
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+{% block pageTitle %}{{ name }} - Samland GOV{% endblock %}
+
+{% block content %}
+<form method="get" novalidate id="results-form">
+  <h1 class="govuk-heading-xl">{{ name }}</h1>
+
+  {{ govukInput({
+    label: {
+      text: "Search Samland GOV",
+      classes: "govuk-label--l, govuk-visually-hidden"
+    },
+    id: "search",
+    name: "search",
+    classes: "govuk-!-width-two-thirds",
+    error: errors["search"],
+    value: pagination.values["search"]
+  }) }}
+
+  <div class="govuk-grid-row">
+    
+    {% if pagination.displayOrganisationFilter %}
+    <div class="govuk-grid-column-one-third">
+      {{ govukCheckboxes({
+        idPrefix: "organisation",
+        name: "organisation",
+        classes: "govuk-checkboxes--small",
+        fieldset: {
+          legend: {
+            html: "<a class='govuk-link' href=''>Organisation</a>",
+            classes: "app-open-fieldset govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "hmrc",
+            text: "HM Revenue and Customs (HMRC)"
+          },
+          {
+            value: "employment-tribunal",
+            text: "Employment Tribunal"
+          },
+          {
+            value: "mod",
+            text: "Ministry of Defence"
+          }
+        ],
+        error: errors["organisation"],
+        values: pagination.values["organisation"]
+      }) }}
+
+      {{ govukButton({
+        text: "Update filters"
+      }) }}
+    </div>
+    {% endif %}
+    
+    <div class="govuk-grid-column-two-thirds">
+      <div class="app-search-results-summary">
+        <h2 class="govuk-heading-s">{{ pagination.total }} results</h2>
+        <span class="subscribe-link"><a href="#" class="govuk-link govuk-body-s">Subscribe to feed</a></span>
+      </div>
+      <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible govuk-!-margin-bottom-3">
+      <div class="app-search-result-sort">
+        {{ govukSelect({
+          id: "order",
+          name: "order",
+          classes: "app-search-result-sort",
+          label: {
+            text: "Sort by"
+          },
+          items: [
+            {
+              value: "relevance",
+              text: "Relevance"
+            },
+            {
+              value: "updated-newest",
+              text: "Updated (newest)"
+            },
+            {
+              value: "updated-oldest",
+              text: "Updated (oldest)"
+            }
+          ],
+          error: errors["order"],
+          value: pagination.values["order"]
+        }) }}
+        {% if not pagination.displayOrganisationFilter %}
+          {{ govukButton({
+            text: "Update filters"
+          }) }}
+        {% endif %}
+      </div>
+      <ul class="govuk-list app-document-list">
+          {% for document in pagination.items %}
+              <li>
+                  <h3 class="govuk-heading-s govuk-!-margin-bottom-2">
+                    <a class="govuk-link govuk-link--no-underline" href="/{{ document.slug }}">
+                      {{ document.name }}
+                    </a>
+                  </h3>
+                  <p class="govuk-body-s govuk-!-margin-bottom-4">
+                      {{ document.description }}
+                  </p>
+                  {% if document.metadata %}
+                    <ul class="app-metadata-list govuk-!-padding-0">
+                        {% for data in document.metadata %}
+                            <li class="govuk-body govuk-!-font-size-16">
+                                {% if data['is_text'] %}
+                                    {{ data.value }}
+                                {% endif %}
+                                {% if data['is_date'] %}
+                                    Updated: {{ data['human_date'] }}
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                  {% endif %}
+              </li>
+          {% endfor %}
+      </ul>
+
+      {% if pagination.totalPages > 0 %}
+        {% macro pageHref(page) %}
+          {{ "?page=" ~ page }}
+        {% endmacro %}
+
+        {% set paginationItems = [] %}
+
+        {# Leading first page + ellipsis #}
+        {% if pagination.currentPage > 10 %}
+          {% set paginationItems = paginationItems.concat([
+            { href: pageHref(1), number: 1 },
+            { ellipsis: true }
+          ]) %}
+        {% endif %}
+
+        {# Current page ±1 #}
+        {% set paginationItems = paginationItems.concat([
+          { href: pageHref(pagination.currentPage - 1), number: pagination.currentPage - 1 },
+          { href: pageHref(pagination.currentPage), number: pagination.currentPage, current: true },
+          { href: pageHref(pagination.currentPage + 1), number: pagination.currentPage + 1 }
+        ]) %}
+
+        {# Trailing ellipsis + last page if there are more pages ahead #}
+        {% if pagination.currentPage + 1 < pagination.totalPages %}
+          {% set paginationItems = paginationItems.concat([
+            { ellipsis: true },
+            { href: pageHref(pagination.totalPages), number: pagination.totalPages }
+          ]) %}
+        {% endif %}
+
+        {{ govukPagination({
+          previous: { href: pageHref(pagination.currentPage - 1) },
+          next: { href: pageHref(pagination.currentPage + 1) },
+          items: paginationItems
+        }) }}
+      {% endif %}
+    </div>
+  </div>
+</form>
+{% endblock %}
+
+{% block bodyEnd %}
+  {# Run JavaScript at end of the <body>, to avoid blocking the initial render. #}
+  <script type="module" src="/public/govuk-frontend.min.js"></script>
+  <script type="module">
+    import { initAll } from '/public/govuk-frontend.min.js'
+    initAll()
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const select = document.getElementById('order');
+      const searchInput = document.getElementById('search');
+      const form = document.getElementById('results-form');
+
+      if (select && form) {
+        select.addEventListener('change', function() {
+          form.submit();
+        });
+      }
+      if (searchInput && form) {
+        searchInput.addEventListener('change', function() {
+          form.submit();
+        });
+      }
+    });
+  </script>
+{% endblock %}

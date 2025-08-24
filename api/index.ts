@@ -1,27 +1,12 @@
 import express from "express";
 import path from "path";
-import fs from "fs";
 import nunjucks from "nunjucks";
 
 import { marked } from 'marked'
 import govukMarkdown from 'govuk-markdown'
-import matter from "gray-matter";
+import { getContentEntries, fetchContent, handlePaginationIfRequested } from "./content";
 
 marked.use(govukMarkdown())
-
-const contentDir = path.join(__dirname, 'content');
-
-function getContentEntries(subdir: string) {
-  const dirPath = path.join(contentDir, subdir);
-  return fs.readdirSync(dirPath)
-    .filter(file => file.endsWith('.md'))
-    .map(file => {
-      const filePath = path.join(dirPath, file);
-      const fileContents = fs.readFileSync(filePath, 'utf8');
-      const { data } = matter(fileContents);
-      return { ...data, slug: subdir+"/"+file.replace(/\.md$/, '') };
-    });
-}
 
 const app = express();
 
@@ -49,26 +34,23 @@ app.get('/', (req, res) => {
 });
 
 app.get('/:slug(*)', function (req, res) {
-  const fileName = req.params.slug + '.md'; // map slug → .md
-  const filePath = path.join(contentDir, fileName);
+  const result = fetchContent(req);
 
-  // Security: ensure only files inside the contentDir are accessible
-  if (!filePath.startsWith(contentDir)) {
-    return res.status(400).send('Invalid file path');
+  if (result === 404) {
+    return res.status(404).send('Content not found');
   }
 
-  fs.readFile(filePath, 'utf8', (err, body) => {
-    if (err) return res.status(404).send('File not found');
-    const { data, content } = matter(body);
-    const html = marked(content);
-    res.render(
-      `layouts/${data.template}.njk`,
-      {
-        ...data,
-        content: html
-      }
-    );
-  });
+  const { data, html } = result;
+  const pagination = handlePaginationIfRequested(req, data);
+
+  res.render(
+    `layouts/${data.template}.njk`,
+    {
+      ...data,
+      content: html,
+      pagination: pagination
+    }
+  );
 });
 
 module.exports = app;

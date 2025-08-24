@@ -1,6 +1,13 @@
 ---
 template: organisation_template
 name: Department for Resource Management
+id: department-for-resource-management
+collection: organisations
+metadata:
+  - label: "Updated"
+    is_date: true
+    machine_date: "2025-08-24"
+    human_date: "24 August 2025"
 ---
 
 The Department for Resource Management oversees Samland’s world. We coordinate fair resource use,

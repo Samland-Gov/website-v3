@@ -1,6 +1,13 @@
 ---
 template: organisation_template
 name: Department for Planning and Development
+id: department-for-planing-and-development
+collection: organisations
+metadata:
+  - label: "Updated"
+    is_date: true
+    machine_date: "2025-08-24"
+    human_date: "24 August 2025"
 ---
 
 ## Our Mission
