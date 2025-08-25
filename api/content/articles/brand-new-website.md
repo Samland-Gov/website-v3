@@ -4,15 +4,15 @@ articleCategory: Press release
 publishedDate: 24 August 2025
 name: "The new Samland Government website is live"
 collection: articles
-description: "We have launched a brand new website for Samland Government, making it easier to find the information you need."
+description: "We have launched a brand new website for the Samland Government, making it easier to find the information you need."
 organisation:
   name: Department for Digital
   url: /organisations/department-for-digital
 metadata:
   - label: "Updated"
     is_date: true
-    machine_date: "2025-08-24"
-    human_date: "24 August 2025"
+    machine_date: "2025-08-25"
+    human_date: "25 August 2025"
 ---
 
 The Department for Digital is pleased to announce the launch of the Samland Government website. The website has been redesigned to improve the clarity of information about the Samland project, simplify access to community resources, and assist users in locating relevant contact information for the project.
