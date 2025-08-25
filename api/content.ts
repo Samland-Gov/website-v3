@@ -48,7 +48,8 @@ export function fetchContent(req: Request) {
 
   const body = fs.readFileSync(filePath, 'utf8');
   const { data, content } = matter(body);
-  const html = marked(content);
+  let html = marked(content) as string;
+  html = html.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 
   return { data, html };
 }

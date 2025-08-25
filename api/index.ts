@@ -28,11 +28,6 @@ app.get('/public/govuk-frontend.min.js', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'node_modules', 'govuk-frontend', 'dist', 'govuk', 'govuk-frontend.min.js'));
 });
 
-// Home route - HTML
-app.get('/', (req, res) => {
-  res.render('index.html');
-});
-
 app.get('/:slug(*)', function (req, res) {
   const result = fetchContent(req);
 
@@ -43,14 +38,14 @@ app.get('/:slug(*)', function (req, res) {
   const { data, html } = result;
   const pagination = handlePaginationIfRequested(req, data);
 
-  res.render(
-    `layouts/${data.template}.njk`,
-    {
-      ...data,
-      content: html,
-      pagination: pagination
-    }
-  );
+  const context ={
+    ...data,
+    pagination: pagination
+  }
+  const renderedContent = nunjucks.renderString(html, context);
+  context['content'] = renderedContent;
+
+  res.render(`layouts/${data.template}.njk`, context);
 });
 
 module.exports = app;

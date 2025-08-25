@@ -6,8 +6,8 @@ name: "The new Samland Government website is live"
 collection: articles
 description: "We have launched a brand new website for Samland Government, making it easier to find the information you need."
 organisation:
-    name: Department for Digital
-    url: /organisations/department-for-digital
+  name: Department for Digital
+  url: /organisations/department-for-digital
 metadata:
   - label: "Updated"
     is_date: true

@@ -1,0 +1,43 @@
+{% extends "samland_govuk/template.njk" %}
+
+{# Import only the GOV.UK Frontend component macros we use #}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}Samland GOV{% endblock %}
+
+{% block afterMain %}
+<div class="app-masthead">
+  <div class="govuk-width-container">
+    <div class="govuk-main-wrapper">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-xl app-inverse">{{masthead.title}}</h1>
+          <p class="govuk-body-lead app-inverse">{{masthead.line1}}</p>
+          <p class="govuk-body-lead app-inverse">{{masthead.line2}}</p>
+          {{ govukButton({
+            text: 'Join the simulation',
+            href: '/join',
+            classes: "govuk-button--inverse",
+            isStartButton: true
+          }) }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    {{ content | safe }}
+  </div>
+{% endblock %}
+
+{% block bodyEnd %}
+  {# Run JavaScript at end of the <body>, to avoid blocking the initial render. #}
+  <script type="module" src="/public/govuk-frontend.min.js"></script>
+  <script type="module">
+    import { initAll } from '/public/govuk-frontend.min.js'
+    initAll()
+  </script>
+{% endblock %}
