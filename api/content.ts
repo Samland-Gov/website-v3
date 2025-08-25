@@ -106,10 +106,10 @@ export function handlePaginationIfRequested(req: Request, data: { [key: string]:
       const descMatch = item.description && item.description.toLowerCase().includes(searchLower);
       return nameMatch || descMatch;
     });
-
-    pagination.total = flitteredCollection.length;
-    pagination.items = flitteredCollection;
   }
+
+  pagination.total = flitteredCollection.length;
+  pagination.items = flitteredCollection;
 
   return pagination;
 }
