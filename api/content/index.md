@@ -30,6 +30,7 @@ Find out what the government is doing
     </div>
   {% else %}
     {% for post in entries %}
+      {% if post.template == "article_template" %}
       <div class="govuk-grid-column-one-third govuk-!-margin-bottom-4">
         <a href="{{ post.slug }}"> <!-- Make the whole card clickable for ease of use-->
           <div class="app-card" style="background:#f0f4f8; border-left: 5px solid #1d70b8; padding: 15px; height: 100%;">
@@ -39,6 +40,7 @@ Find out what the government is doing
           </div>
         </a>
       </div>
+      {% endif %}
     {% endfor %}
     {% if entries|length > 3 %} {# Only show if there are more than 3 entries #}
       <div class="govuk-grid-column-full govuk-!-text-align-right govuk-!-margin-top-3">
