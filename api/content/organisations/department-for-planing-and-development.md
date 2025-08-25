@@ -1,13 +1,14 @@
 ---
 template: organisation_template
 name: Department for Planning and Development
+description: The Department for Planning and Development is responsible for guiding Samland's physical and economic growth through strategic planning, sustainable development practices, and community engagement. Since our founding in 2025, we have been shaping Samland's landscape.
 id: department-for-planing-and-development
 collection: organisations
 metadata:
   - label: "Updated"
     is_date: true
-    machine_date: "2025-08-24"
-    human_date: "24 August 2025"
+    machine_date: "2025-08-25"
+    human_date: "25 August 2025"
 ---
 
 ## Our Mission

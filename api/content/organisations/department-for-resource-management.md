@@ -1,13 +1,14 @@
 ---
 template: organisation_template
 name: Department for Resource Management
+description: The Department for Resource Management oversees Samland’s world. We coordinate fair resource use, protect scenic landscapes, and keep automation and farming practices server-friendly. Our goal is to make sure the world stays playable, beautiful, and sustainable for all citizens.
 id: department-for-resource-management
 collection: organisations
 metadata:
   - label: "Updated"
     is_date: true
-    machine_date: "2025-08-24"
-    human_date: "24 August 2025"
+    machine_date: "2025-08-25"
+    human_date: "25 August 2025"
 ---
 
 The Department for Resource Management oversees Samland’s world. We coordinate fair resource use,

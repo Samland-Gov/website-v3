@@ -1,13 +1,14 @@
 ---
 template: organisation_template
 name: Department for Digital
+description: The Department for Digital is responsible for managing Samland's digital infrastructure, including server networks, data centers, and cybersecurity measures. We ensure that all government digital services are reliable, secure, and accessible to citizens.
 id: department-for-digital
 collection: organisations
 metadata:
   - label: "Updated"
     is_date: true
-    machine_date: "2025-08-24"
-    human_date: "24 August 2025"
+    machine_date: "2025-08-25"
+    human_date: "25 August 2025"
 ---
 
 ## Our Mission

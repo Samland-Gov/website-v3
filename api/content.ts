@@ -10,21 +10,29 @@ marked.use(govukMarkdown())
 
 export const contentDir = path.join(__dirname, 'content');
 
-export function getContentEntries(subdir: string, page: number = 1, limit: number = 10) {
-  const dirPath = path.join(contentDir, subdir);
-  let files = fs.readdirSync(dirPath)
-    .filter(file => file.endsWith('.md'));
+export function getContentEntries(subdir: string | string[], page: number = 1, limit: number = 10) {
+  const subdirs = Array.isArray(subdir) ? subdir : [subdir];
+  let entries: { [key: string]: any }[] = [];
+
+  for (const sd of subdirs) {
+    const dirPath = path.join(contentDir, sd);
+    if (!fs.existsSync(dirPath)) continue;
+    let files = fs.readdirSync(dirPath)
+      .filter(file => file.endsWith('.md'));
+
+    entries.push(
+      ...files.map(file => {
+        const filePath = path.join(dirPath, file);
+        const fileContents = fs.readFileSync(filePath, 'utf8');
+        const { data } = matter(fileContents);
+        return { ...data, slug: sd + "/" + file.replace(/\.md$/, '') };
+      })
+    );
+  }
 
   // Pagination: page is 1-based, limit is items per page
   const startIndex = (page - 1) * limit;
-  const pagedFiles = files.slice(startIndex, startIndex + limit);
-
-  return pagedFiles.map(file => {
-    const filePath = path.join(dirPath, file);
-    const fileContents = fs.readFileSync(filePath, 'utf8');
-    const { data } = matter(fileContents);
-    return { ...data, slug: subdir + "/" + file.replace(/\.md$/, '') } as { [key: string]: any };
-  });
+  return entries.slice(startIndex, startIndex + limit);
 }
 
 export function fetchContent(req: Request) {
@@ -49,7 +57,12 @@ export function fetchContent(req: Request) {
   const body = fs.readFileSync(filePath, 'utf8');
   const { data, content } = matter(body);
   let html = marked(content) as string;
-  html = html.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+  html = html
+  .replace(/&amp;/g, '&')
+  .replace(/&lt;/g, '<')
+  .replace(/&gt;/g, '>')
+  .replace(/&quot;/g, '"')
+  .replace(/&#39;/g, "'");
 
   return { data, html };
 }
